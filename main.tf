@@ -6,6 +6,9 @@ resource "azurerm_service_plan" "service_plan" {
   sku_name            = "B1"
   
   tags = {
-    azd-env-name = "sboai-env2"
+    project     = var.project
+    environment = var.environment
+    owner       = var.owner
   }
+  
 }
