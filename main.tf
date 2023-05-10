@@ -1,6 +1,7 @@
 resource "azurerm_service_plan" "service_plan" {
+  name     = lower(format("sp-%s-%s-%s", var.project, var.environment, var.name))
+
   location            = var.location
-  name                = var.name
   os_type             = "Linux"
   resource_group_name = var.rg_name
   sku_name            = "B1"
@@ -10,5 +11,5 @@ resource "azurerm_service_plan" "service_plan" {
     environment = var.environment
     owner       = var.owner
   }
-  
+
 }
